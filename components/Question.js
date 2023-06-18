@@ -51,12 +51,12 @@ export default function Question({ question, setCurrentQuestion, len, currQuesti
                 return (
                     <div className="flex items-center gap-4" key={index}>
                         <RadioButton isChecked={selectedIndex == index && true} onClick={() => setSelectedIndex(index)} />
-                        <p className="font-medium">{option.name}</p>
+                        <p className="font-medium">{option?.name}</p>
                     </div>
                 )
             })}
             <div className="w-full items-center flex justify-between">
-                <p className="text-sm text-neutral-400">Total Votes: {question.votes}</p>
+                <p className="text-sm text-neutral-400">Total Votes: {question?.votes}</p>
                 <button className="bg-violet-500 px-4 py-2 rounded-md text-white font-medium" onClick={handleVote}>{loading ? "Loading..." : "Vote"}</button>
             </div>
         </div>
