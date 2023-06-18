@@ -14,7 +14,7 @@ function AskName({ setName }) {
       <input ref={nameRef} placeholder="Enter your name" className="border h-10 px-2 rounded-md" />
       <button onClick={onStart} className="bg-violet-500 px-4 py-2 rounded-md text-white font-medium">Start</button>
       <p className="text-sm text-neutral-400">Everything will be saved except your name.😜</p>
-      <p className="text-sm text-neutral-400">Source code for this: <a className="text-violet-500 underline" href="">Github</a></p>
+      <p className="text-sm text-neutral-400">Source code for this: <a className="text-violet-500 underline" href="https://github.com/mohit4bug/next-survey-web">Github</a></p>
     </div>
   )
 }
