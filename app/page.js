@@ -1,6 +1,6 @@
 'use client'
 
-import Question from "@/components/Question"
+import Question from "../components/Question"
 import { useEffect, useRef, useState } from "react"
 
 function AskName({ setName }) {
