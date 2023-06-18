@@ -23,20 +23,20 @@ export default function Question({ question, setCurrentQuestion, len, currQuesti
 
     const [selectedIndex, setSelectedIndex] = useState(-1)
     const [completed, setCompleted] = useState(false)
+    const [loading, setLoading] = useState(false)
     const handleVote = async () => {
-        console.log(selectedIndex)
         if (selectedIndex === -1) {
             return
         }
-
+        setLoading(true)
         const URL = "/api/questions/vote/?question=" + question.question + "&votename=" + question.options[selectedIndex].name
         const res = await fetch(URL)
-        const data = await res.json()
-        console.log(data)
+        await res.json()
 
         if (currQuestion < len - 1) {
             setCurrentQuestion((prev) => prev + 1)
             setSelectedIndex(-1)
+            setLoading(false)
         }
         else {
             setCompleted(true)
@@ -57,7 +57,7 @@ export default function Question({ question, setCurrentQuestion, len, currQuesti
             })}
             <div className="w-full items-center flex justify-between">
                 <p className="text-sm text-neutral-400">Total Votes: {question.votes}</p>
-                <button className="bg-violet-500 px-4 py-2 rounded-md text-white font-medium" onClick={handleVote}>Vote</button>
+                <button className="bg-violet-500 px-4 py-2 rounded-md text-white font-medium" onClick={handleVote}>{loading ? "Loading..." : "Vote"}</button>
             </div>
         </div>
     )
