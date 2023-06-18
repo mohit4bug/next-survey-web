@@ -1,6 +1,6 @@
-import dbConnect from '@/lib/mongodb'
-import Questions from '@/models/Questions'
 import { NextResponse } from 'next/server'
+import dbConnect from '../../../lib/mongodb'
+import Questions from "../../../models/Questions"
 
 export async function GET() {
 
